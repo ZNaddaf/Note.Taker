@@ -43,16 +43,13 @@ Create an application that can be used to write, save, and delete notes. This ap
 
 
 frontend already done
-        |
-        |        
-    Backend
-        V
-
+                
+Backend:
 
     Html Routes:
         * GET '/notes'
             return: 'notes.html'
-        * GET '*'
+        * GET '/'
             return: 'index.html'
 
     db.json
@@ -61,19 +58,19 @@ frontend already done
 
     API Routes
 
-"Application should allow users to view previously saved notes."
+- Application should allow users to view previously saved notes.
         * GET '/api/notes'
             - read 'db.json' 
                 return all saved notes as JSON
         
 
-"Application should allow users to create and save notes."
+- Application should allow users to create and save notes.
         * POST '/api/notes'
             - recieve a new note to save on the request body
             - add it to 'db.json'
             - return new note to client
 
-"Application should allow users to delete previously saved notes."
+- Application should allow users to delete previously saved notes.
         * DELETE '/api/notes/:id'
             - recieve a query paramter containing the id of a note to delete.
                 > each note has a unique 'id' when saved
@@ -82,8 +79,3 @@ frontend already done
                 1. read all notes from 'db.sjon'
                 2. remove note with given 'id'
                 3. Rewrite notes to 'db.json'
-
-
-
-
-
