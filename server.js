@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 // NPM Express Requirements
 //----------------------------------------------------
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.JSON());
 app.use(express.static("public"));
 app.use("/", htmlRoutes);
 app.use("/api", apiRoutes);

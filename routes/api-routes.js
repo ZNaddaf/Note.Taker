@@ -3,6 +3,7 @@ const router = require("express").Router();
 const store = require("../db/store");
 const path = require("path");
 
+// Get notes from the router
 router.get("/notes", function (req, res) {
     store
         .getNotes()
@@ -10,6 +11,8 @@ router.get("/notes", function (req, res) {
         .catch(err => res.status(500).json(err));
 });
 
+
+// Post notes to the router
 router.post("/notes", function (req, res) {
     store
         .addNotes(req.body)
@@ -17,6 +20,7 @@ router.post("/notes", function (req, res) {
         .catch(err => res.status(500).json(err));
 });
 
+// Delete notes from the router
 router.delete("/notes/:id", function (req, res) {
     store
         .delNotes(req.params.id)
