@@ -21,15 +21,19 @@ class Store {
     }
 
     read() {
-
+        return readFileA('./db/db.json').then((fileContent) => {
+            return JSON.parse(fileContent)
+        })
     }
 
     write(note) {
-
+        writeFileA
+        fs.writeFile(db.json);
+        return (JSON.parse)
     }
 
     getNotes() {
-
+        return this.read()
     }
 
     addNotes(note) {
