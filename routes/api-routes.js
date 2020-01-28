@@ -15,7 +15,7 @@ router.get("/notes", function (req, res) {
 // Post notes to the router
 router.post("/notes", function (req, res) {
     store
-        .addNotes(req.body)
+        .addNote(req.body)
         .then((note) => res.json(note))
         .catch(err => res.status(500).json(err));
 });
@@ -23,7 +23,7 @@ router.post("/notes", function (req, res) {
 // Delete notes from the router
 router.delete("/notes/:id", function (req, res) {
     store
-        .delNotes(req.params.id)
+        .delNote(req.params.id)
         .then(() => res.json({ ok: true }))
         .catch(err => res.status(500).json(err));
 });

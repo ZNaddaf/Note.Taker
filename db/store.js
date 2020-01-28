@@ -18,6 +18,12 @@ const writeFileA = util.promisify(fs.writeFile);
 class Store {
     constructor() {
         this.lastId = 0;
+        this.read().then((notes) => {
+            for (let i = 0; i < notes.length; i++) {
+                const defaultNote = notes[i]
+                this.lastId = Math.max(this.lastId, defaultNote.id)
+            }
+        })
     }
 
     read() {
@@ -26,22 +32,35 @@ class Store {
         })
     }
 
-    write(note) {
-        writeFileA
-        fs.writeFile(db.json);
-        return (JSON.parse)
+    write(notes) {
+        return writeFileA('./db/db.json', JSON.stringify(notes))
     }
 
     getNotes() {
         return this.read()
     }
 
-    addNotes(note) {
+    addNote(note) {
+        return this.read().then((notes) => {
+            note.id = ++this.lastId
+            notes.push(note)
+            this.write(notes)
+            return note
+        })
 
     }
 
-    delNotes(id) {
-
+    delNote(id) {
+        return this.read().then((notes) => {
+            for (let i = 0; i < notes.length; i++) {
+                const defaultNote = notes[i]
+                if (id == defaultNote.id) {
+                    notes.splice(i, 1)
+                    break;
+                }
+            }
+            this.write(notes)
+        })
     }
 }
 
