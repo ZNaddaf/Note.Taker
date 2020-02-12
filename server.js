@@ -5,6 +5,8 @@ const express = require("express");
 const fs = require("fs");
 const apiRoutes = require("./routes/api-routes");
 const htmlRoutes = require("./routes/html-routes");
+const compression = require("compression")
+app.use(compression())
 
 const path = require("path");
 const app = express();
@@ -22,6 +24,6 @@ app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
 
 app.listen(PORT, function () {
-    console.log("App listening on PORT: " + PORT);
+  console.log("App listening on PORT: " + PORT);
 });
 
