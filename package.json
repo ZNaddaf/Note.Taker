@@ -20,6 +20,6 @@
   "homepage": "https://github.com/N0matic/Note.Taker#readme",
   "dependencies": {
     "compression": "^1.7.4",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
